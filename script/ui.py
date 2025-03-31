@@ -48,51 +48,51 @@ class ErzaehlomatUI:
         # Anweisungen als Label
         start_label = tk.Label(
             root,
-            text="Drücken Sie Start, um Ihre Geschichte aufzunehmen.",  # Anweisung
+            text="Drücken Sie START, um Ihre Geschichte aufzunehmen.",  # Anweisung
             font=("Arial", 24),
             bg="white",
             fg="black",
             justify="center",
             wraplength=500
         )
-        start_label.place(relx=0.2, rely=0.4, anchor="center")
+        start_label.place(relx=0.2, rely=0.425, anchor="center")
 
         stop_label = tk.Label(
             root,
-            text="Drücken Sie Stop, um die Aufnahme zu beenden.",  # Anweisung
+            text="Drücken sie STOP, um die Aufnahme zu beenden.",  # Anweisung
             font=("Arial", 24),
             bg="white",
             fg="black",
             justify="center",
             wraplength=500
         )
-        stop_label.place(relx=0.2, rely=0.6, anchor="center")
+        stop_label.place(relx=0.2, rely=0.575, anchor="center")
 
         next_label = tk.Label(
             root,
-            text="Drücken Sie Nächste Frage, um zur nächsten Frage zu gelangen.",  # Anweisung
+            text="Drücken Sie NÄCHSTE FRAGE, um zur nächsten Frage zu gelangen.",  # Anweisung
             font=("Arial", 24),
             bg="white",
             fg="black",
             justify="center",
-            wraplength=500
+            wraplength=600
         )
-        next_label.place(relx=0.8, rely=0.6, anchor="center")
+        next_label.place(relx=0.8, rely=0.575, anchor="center")
 
         previous_label = tk.Label(
             root,
-            text="Drücken Sie Vorherige Frage, um zur vorherigen Frage zu gelangen.",  # Anweisung
+            text="Drücken Sie VORHERIGE FRAGE, um zur vorherigen Frage zu gelangen.",  # Anweisung
             font=("Arial", 24),
             bg="white",
             fg="black",
             justify="center",
-            wraplength=500
+            wraplength=600
         )
-        previous_label.place(relx=0.8, rely=0.4, anchor="center")
+        previous_label.place(relx=0.8, rely=0.425, anchor="center")
 
         quit_label = tk.Label(
             root,
-            text="Drücken Sie Ausschalten, um wann anders weiterzumachen.",  # Anweisung
+            text="Drücken Sie AUSSCHALTEN, um wann anders weiterzumachen.",  # Anweisung
             font=("Arial", 24),
             bg="white",
             fg="black",
