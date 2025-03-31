@@ -1,10 +1,9 @@
 import sounddevice as sd
 import numpy as np
 import scipy.io.wavfile as wav
-import keyboard  # For detecting key presses
 
 # Recording settings
-samplerate = 44100  # Sample rate in Hz
+samplerate = 48000 # 44100  # Sample rate in Hz
 audio_data = []
 recording = False  # Flag to track recording state
 
@@ -29,8 +28,12 @@ def start_recording(output_path, output_filename):
         print("Recording started... Press 'e' to stop.")
         audio_data = []  # Reset data
         recording = True
-        with sd.InputStream(samplerate=samplerate, channels=1, callback=callback, dtype=np.int16):
-            keyboard.wait("e")  # Wait for 'e' to stop recording
+        try:
+            with sd.InputStream(device=4, samplerate=samplerate, channels=1, callback=callback, dtype='int16'):
+                print("Press Ctrl+C to stop recording.")
+            while True: pass
+        except KeyboardInterrupt:
+            print("Recording stopped with Ctrl+C.")
 
         stop_recording(output_path, output_filename)
 
