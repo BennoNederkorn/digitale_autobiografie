@@ -3,16 +3,30 @@ import audio_recorder
 import transcription
 import ollama
 
+categories = {
+    1: "Kindheit",
+    2: "Jugend",
+    3: "Familie",
+    4: "Arbeit",
+    5: "Prägendes",
+    6: "Sonstiges"
+}
+
+def get_number() -> int:
+    while True:
+        try:
+            selected = int(input("Bitte wähle eine Kategorie (1-6): "))
+            if selected in categories:
+                return selected
+            else:
+                print("Ungültige Kategorie. Bitte wähle eine Zahl zwischen 1 und 6.")
+        except ValueError:
+            print("Ungültige Eingabe. Bitte gib eine Zahl ein.")
+    
+
 def main():
     # Define the available categories
-    categories = {
-        1: "Kindheit",
-        2: "Jugend",
-        3: "Familie",
-        4: "Arbeit",
-        5: "Prägendes",
-        6: "Sonstiges"
-    }
+
 
     # Initialize recording counts for each category
     recording_counts = {cat: 0 for cat in categories.keys()}
@@ -22,17 +36,7 @@ def main():
     for num, name in categories.items():
         print(f"{num}: {name}")
 
-    while True:
-        try:
-            selected = int(input("Bitte wähle eine Kategorie (1-6): "))
-            if selected in categories:
-                break
-            else:
-                print("Ungültige Kategorie. Bitte wähle eine Zahl zwischen 1 und 6.")
-        except ValueError:
-            print("Ungültige Eingabe. Bitte gib eine Zahl ein.")
-
-    current_category = selected
+    current_category : int = get_number()
 
     # Main process loop
     while True:
