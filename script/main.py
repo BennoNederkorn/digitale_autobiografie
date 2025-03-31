@@ -158,7 +158,7 @@ def main():
     for num, name in categories.items():
         print(f"{num}: {name}")
 
-    current_category : int = get_number()
+    current_category : int = get_number(categories)
 
     logging.info(f"Path.home(): {Path.home()}")
 

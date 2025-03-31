@@ -29,7 +29,7 @@ def start_recording(output_path, output_filename):
         audio_data = []  # Reset data
         recording = True
         try:
-            with sd.InputStream(device=4, samplerate=samplerate, channels=1, callback=callback, dtype='int16'):
+            with sd.InputStream(samplerate=samplerate, channels=1, callback=callback, dtype='int16'):
                 print("Press Ctrl+C to stop recording.")
             while True: pass
         except KeyboardInterrupt:
