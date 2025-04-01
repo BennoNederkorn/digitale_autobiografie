@@ -59,7 +59,7 @@ class ErzaehlomatUI:
 
         stop_label = tk.Label(
             root,
-            text="Drücken sie STOP, um die Aufnahme zu beenden.",  # Anweisung
+            text="Drücken Sie STOP, um zu stoppen",  # Anweisung
             font=("Arial", 24),
             bg="white",
             fg="black",
@@ -101,9 +101,38 @@ class ErzaehlomatUI:
         )
         quit_label.place(relx=0.5, rely=0.8, anchor="center")
 
+        #Currently recording functionality
+        self.recording_label = tk.Label(
+            root,
+            text="Aufnahme läuft...",
+            font=("Arial", 24),
+            bg="white",
+            fg="red",
+            justify="center",
+            wraplength=500
+        )
         # Escape-Taste zum Beenden
         root.bind('<Escape>', lambda e: root.destroy())
+    
+    def show_frame(self, frame):
+        """
+        shows Frame if visible.
+        If already visible its not shown again.
+        """
+        frame.place(relx=0.2, rely=0.5, anchor="center")
+
+    def hide_frame(self, frame):
+        """
+        Hides Frame if visible.
+        """
+        if frame.winfo_ismapped():
+            frame.place_forget()
 
     # Methode zum Aktualisieren der Frage
     def update_question(self, new_question):
+        """
+        Updates Label with new question.
+        :param new_question: The new question to be displayed. Needs a string.
+        :type new_question: str"
+        """
         self.question_label.config(text=new_question)

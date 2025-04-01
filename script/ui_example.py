@@ -11,7 +11,8 @@ def main():
     # Beispiel: Frage nach 3 Sekunden aktualisieren
     root.after(3000, lambda: ui.update_question("Was war Ihr schönstes Erlebnis?"))
     root.after(5000, lambda: ui.update_question("Was war Ihr nächst schöneres Erlebnis?"))
-
+    ui.show_frame(ui.recording_label)
+    root.after(7000, lambda: ui.hide_frame(ui.recording_label))
     # Hauptfenster starten
     root.mainloop()
 
